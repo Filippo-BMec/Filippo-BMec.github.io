@@ -14,7 +14,7 @@ body {
 }
 
 .profile-photo {
-    width: 150px; /* Dimensione della foto */
+    width: 1.5px; /* Dimensione della foto */
     height: auto; /* Mantiene proporzioni */
     border-radius: 50%; /* Rende la foto circolare */
     margin-bottom: 10px; /* Spazio sotto la foto */

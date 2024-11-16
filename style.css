@@ -42,9 +42,9 @@ nav ul li a:hover {
 
 /* Stile della foto del profilo */
 .profile-photo {
-    width: 150px;  /* Dimensione predefinita per schermi più grandi */
+    width: 200px;  /* Dimensione predefinita per schermi più grandi */
     height: auto;
-    border-radius: 50%;
+    border-radius: 10%;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -62,7 +62,7 @@ nav ul li a:hover {
     }
 
     .text-content {
-        max-width: 100%; /* Usa tutta la larghezza disponibile */
+        max-width: 80%; /* Usa tutta la larghezza disponibile */
     }
 }
 

@@ -65,11 +65,13 @@ nav ul li a:hover {
 /* Sezioni di contenuto */
 section {
     margin-top: 30px;
+    margin-bottom: 50px; /* Aumenta il margine inferiore per più spazio tra le sezioni */
     padding: 20px;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 
 /* Social icons style */
 .social-icons {
@@ -161,4 +163,95 @@ a {
 .dark-theme a:hover {
     color: #7f3a7a; /* Grigio più scuro al hover per il tema notte */
     text-decoration: blink; /* Sottolineatura al hover nel tema notte */
+}
+
+ul {
+    padding-left: 20px; /* Aumenta il padding a sinistra per allineare meglio gli elenchi */
+    margin-bottom: 20px; /* Spazio aggiuntivo sotto l'intero elenco */
+}
+
+ul li {
+    margin-bottom: 10px; /* Aumenta lo spazio tra gli elementi dell'elenco */
+    line-height: 1.6; /* Migliora la leggibilità aumentando l'altezza della linea */
+}
+
+#working-papers .abstract {
+    font-size:smaller ;  /* Dimensione del font più piccola */
+    color: #757575;      /* Un colore più chiaro per un testo più light */
+    font-weight: lighter; /* Peso del font normale per distinguerlo dal titolo grassetto */
+    margin-top: 10px; /* Un piccolo margine superiore per separarlo dal titolo */
+    margin-bottom: 20px; /* Margine inferiore per spazio prima del prossimo elemento */
+    line-height: 1.4;
+}
+
+#working-papers h2 {
+    color: #333;
+}
+
+#working-papers ul {
+    list-style-type: square; /* Stile degli elenchi per differenziare */
+}
+
+#working-papers strong {
+    font-style:initial ; /* Rimuove il corsivo */
+    color: #080909; /* Imposta un colore più scuro per maggiore enfasi */
+    font-weight: bold; /* Assicurati che il titolo sia in grassetto */
+    font-size: 1.2em; /* Imposta una dimensione coerente con altri titoli */
+
+}
+
+
+.dark-theme #working-papers h2 {
+    color: #ffffff; /* Colore bianco per i titoli delle sezioni */
+}
+
+.dark-theme #working-papers strong {
+    color: #ffffff !important; /* Forza il colore bianco */
+}
+
+/* Abstract in Modalità Notte */
+.dark-theme #working-papers .abstract {
+    color: #bbbbbb !important; /* Grigio chiaro per leggibilità */
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.3em; /* Riduci leggermente i titoli su dispositivi più piccoli */
+    }
+
+    #working-papers strong {
+        font-size: 1.1em; /* Titoli leggermente più piccoli */
+    }
+
+    #working-papers .abstract {
+        font-size: 0.7em; /* Abstract più piccolo su schermi piccoli */
+    }
+}
+
+#research .abstract {
+    font-size:smaller ;  /* Dimensione del font più piccola */
+    color: #757575;      /* Un colore più chiaro per un testo più light */
+    font-weight: lighter; /* Peso del font normale per distinguerlo dal titolo grassetto */
+    margin-top: 10px; /* Un piccolo margine superiore per separarlo dal titolo */
+    margin-bottom: 20px; /* Margine inferiore per spazio prima del prossimo elemento */
+    line-height: 1.4;
+}
+
+.dark-theme #research h2 {
+    color: #ffffff; /* Colore bianco per i titoli delle sezioni */
+}
+
+.dark-theme #research strong {
+    color: #ffffff !important; /* Forza il colore bianco */
+}
+
+/* Abstract in Modalità Notte */
+.dark-theme #research .abstract {
+    color: #bbbbbb !important; /* Grigio chiaro per leggibilità */
 }

@@ -1,17 +1,51 @@
 <!doctype html>
-<html lang="it">
+<html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filippo Berti Mecocci</title>
     <!-- Preconnect to Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Include Geist Mono font -->
-    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono&display=swap" rel="stylesheet">
-    <!-- Link al tuo file CSS esterno -->
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
+
+<div class="theme-switcher">
+    <i class="fas fa-sun" onclick="toggleTheme();"></i> <!-- Icona sole -->
+    <i class="fas fa-moon" onclick="toggleTheme();"></i> <!-- Icona luna -->
+</div>
+
+
+<script>
+    function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('dark-theme');
+
+    const sunIcon = document.querySelector('.fa-sun');
+    const moonIcon = document.querySelector('.fa-moon');
+
+    if (body.classList.contains('dark-theme')) {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'inline';
+    } else {
+        sunIcon.style.display = 'inline';
+        moonIcon.style.display = 'none';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize with the light theme
+    const body = document.body;
+    body.classList.remove('dark-theme');
+    const sunIcon = document.querySelector('.fa-sun');
+    const moonIcon = document.querySelector('.fa-moon');
+    sunIcon.style.display = 'inline';
+    moonIcon.style.display = 'none';
+});
+</script>
+
 <body>
     <!-- Navbar -->
     <nav>
@@ -22,22 +56,42 @@
         </ul>
     </nav>
 
-    <!-- Header -->
     <header>
         <div class="header-content">
             <img src="MLS04115a.jpeg" alt="Filippo Berti Mecocci" class="profile-photo">
             <div class="text-content">
                 <h1>Filippo Berti Mecocci</h1>
                 <p>PhD Candidate in Development Economics and Local Systems (DELoS)<br>University of Florence</p>
+                <div class="social-icons">
+                    <a href="https://github.com/Filippo-BMec" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://orcid.org/0009-0006-8134-4092" target="_blank" title="ORCID">
+                        <i class="ai ai-orcid"></i>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=FUmIl8QAAAAJ&hl=it" target="_blank" title="Google Scholar">
+                        <i class="ai ai-google-scholar"></i>
+                    </a>
+                    <a href="https://x.com/Filippo_BMec" target="_blank" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/filippo-berti-mecocci-2a18a2116/" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:filippo.bertimecocci@unifi.it" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
+     
 
     <!-- About Section -->
     <section id="about">
         <h2>About</h2>
-        <p>I am a PhD student in Development Economics and Local Systems (DELoS). I am interested in the causes and consequences of the agglomeration of industrial activities. I use recent advances in empirical industrial organization to analyze local growth.</p>
-        <p>I was a visiting research fellow at Trinity College Dublin in 2024. I had a research fellowship at the University of Florence from 2020 to 2021 on cultural economics and artificial intelligence.</p>
+        <p>I am a Ph.D. candidate in Development Economics and Local Systems (<a href="https://www.phd-delos.unifi.it/" target="_blank">DELoS</a>) at the University of Florence under the supervision of <a href="https://cercachi.unifi.it/p-doc2-2013-200052-B-3f2a3c3038282e.html" target="_blank">Marco Bellandi</a>. I am interested in the causes and consequences of industrial agglomeration. In my dissertation, I focus on the Italian dynamics of manufacturing growth led by external economies. I am also interested in how macroeconomic trends affect the geography of production.</p>
+        <p>I was the visiting research assistant of prof. <a href="https://www.tcd.ie/research/profiles/?profile=buciunig" target="_blank">Giulio Buciuni</a> at Trinity College Dublin in 2024. I had a research fellowship at the University of Florence from 2020 to 2021 on cultural economics and artificial intelligence.</p>
     </section>
 
     <!-- Research Section -->
@@ -45,11 +99,11 @@
         <h2>Peer-Reviewed Articles</h2>
         <ul>
             <li>
-                <a href="https://www.sciencedirect.com/science/article/pii/S1056819023000672" target="_blank">The effect of cultural and creative production on human capital: Evidence from European regions</a> - Papers in Regional Science, 2022 <em>with<em> <a href="https://scholar.google.com/citations?user=dKOlftYAAAAJ&hl=it&oi=ao" target="_blank" > Amir Maghssudipour <em>and</em> <a href="https://scholar.google.com/citations?user=9krNpFQAAAAJ&hl=it" target="_blank">Marco Bellandi</a></a>
+                <a href="https://www.sciencedirect.com/science/article/pii/S1056819023000672" target="_blank">The effect of cultural and creative production on human capital: Evidence from European regions</a> - Papers in Regional Science, 2022 <em>with<em> <a href="https://scholar.google.com/citations?user=dKOlftYAAAAJ&hl=it&oi=ao" target="_blank" > Amir Maghssudipour, <a href="https://scholar.google.com/citations?user=9krNpFQAAAAJ&hl=it" target="_blank">Marco Bellandi</a></a>
             </li>
         <h2>Working Papers</h2>
         <li>
-            <p>Firm Size and Local multipliers, 1st Chapter of the PhD Thesis</p>
+             <p> Firm Size and Local multipliers, 1st Chapter of the PhD Thesis</p>
         </li>
         <li>
             <p>Competition and external economies, 2nd Chapter of the PhD Thesis</p>
@@ -63,19 +117,4 @@
         </ul>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contacts</h2>
-        <p>Email: <a href="mailto:filippo.bertimecocci@unifi.it">filippo.bertimecocci@unifi.it</a></p>
-        <div class="social">
-            </a>
-            <a href="https://x.com/Filippo_BMec" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-twitter"></i> Twitter
-            </a>
-            <a href="https://www.linkedin.com/in/filippo-berti-mecocci-2a18a2116/" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-        </div>
-    </section>
-</body>
-</html>
+   

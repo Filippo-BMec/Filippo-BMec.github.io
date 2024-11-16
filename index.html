@@ -47,6 +47,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const backToTop = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Mostra il bottone dopo 300px di scroll
+                backToTop.classList.add('show-back-to-top');
+            } else {
+                backToTop.classList.remove('show-back-to-top');
+            }
+        });
+    });
+</script>
 
 
 <body>
@@ -178,4 +191,4 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     </footer>
 
- <a href="#top" class="back-to-top">⬆ Torna in Cima</a>
+ <a href="#top" class="back-to-top">⬆ back to top</a>

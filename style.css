@@ -45,13 +45,14 @@ nav ul li a:hover {
     width: 200px;  /* Dimensione predefinita per schermi più grandi */
     height: auto;
     border-radius: 10%;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border: 3px solid #335a66; /* Aggiunge un bordo rettangolare */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Adattamenti per schermi piccoli */
 @media (max-width: 768px) {
     .profile-photo {
-        width: 80px; /* Riduci la dimensione della foto */
+        width: 100px; /* Riduci la dimensione della foto */
         height: auto; /* Mantieni proporzioni */
         margin: 10px auto; /* Centra la foto */
     }
@@ -316,6 +317,6 @@ h2 {
         padding: 8px 12px; /* Riduci il padding per adattarlo ai dispositivi mobili */
         font-size: 12px; /* Riduci la dimensione del testo */
         background-color: #afd7e3; /* Colore leggermente più scuro per migliorare il contrasto */
-        color:#ffffff;
+        color:#372d2d;
     }
 }

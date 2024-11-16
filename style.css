@@ -301,6 +301,21 @@ h2 {
     transition: opacity 0.3s ease-in-out;
 }
 
+.dark-theme .back-to-top {
+    color: #afd7e3 !important; /* Forza il colore bianco */
+}
+
 .back-to-top.show-back-to-top {
     display: block; /* Mostra il bottone */
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 15px; /* Più vicino al bordo inferiore */
+        right: 15px; /* Più vicino al bordo destro */
+        padding: 8px 12px; /* Riduci il padding per adattarlo ai dispositivi mobili */
+        font-size: 12px; /* Riduci la dimensione del testo */
+        background-color: #afd7e3; /* Colore leggermente più scuro per migliorare il contrasto */
+        color:#ffffff;
+    }
 }

@@ -169,3 +169,51 @@ a {
     color: #7f3a7a; /* Grigio più scuro al hover per il tema notte */
     text-decoration: blink; /* Sottolineatura al hover nel tema notte */
 }
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-photo {
+        width: 100px;  /* Riduci la dimensione della foto per schermi piccoli */
+        height: 100px;
+    }
+
+    .text-content, .social-icons {
+        width: 100%;  /* Usa l'intera larghezza disponibile */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav items vertically on small screens */
+    }
+
+    section {
+        padding: 15px; /* Riduci il padding per più spazio */
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-photo {
+        width: 100px;  /* Riduci la dimensione della foto per schermi piccoli */
+        height: 100px;
+    }
+
+    .text-content, .social-icons {
+        width: 100%;  /* Usa l'intera larghezza disponibile */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav items vertically on small screens */
+    }
+
+    section {
+        padding: 15px; /* Riduci il padding per più spazio */
+    }
+}

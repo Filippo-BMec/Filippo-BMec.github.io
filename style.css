@@ -45,7 +45,7 @@ nav ul li a:hover {
 /* Adattamenti per schermi piccoli */
 @media (max-width: 768px) {
     .profile-photo {
-        width: 150px;  /* Dimensione ridotta per schermi più piccoli */
+        width: 200px;  /* Dimensione ridotta per schermi più piccoli */
         height: auto;
     }
 }

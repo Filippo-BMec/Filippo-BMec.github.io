@@ -5,23 +5,8 @@
     box-sizing: border-box;
 }
 
-.roboto-thin,
-.roboto-light,
-.roboto-regular,
-.roboto-medium,
-.roboto-bold,
-.roboto-black,
-.roboto-thin-italic,
-.roboto-light-italic,
-.roboto-regular-italic,
-.roboto-medium-italic,
-.roboto-bold-italic,
-.roboto-black-italic {
-  font-family: "Roboto", sans-serif;
-}
-
 body {
-    font-family: 'Roboto', sans-serif; /* Utilizzo di Roboto come font base */
+    font-family: 'Geist Mono',monospace; /* Utilizzo di Roboto come font base */
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f4; /* Colore di sfondo predefinito */
@@ -88,7 +73,7 @@ section {
 
 .social-icons a {
     color: #0073e6;
-    font-size: 24px; /* Dimensione delle icone social */
+    font-size: 32px; /* Dimensione delle icone social */
 }
 
 .social-icons a:hover {
@@ -132,8 +117,8 @@ body.dark-theme section {
 }
 
 a {
-    font-family: 'Roboto', sans-serif; /* Usa Roboto per i link */
-    color: #31484f; /* Un grigio scuro per un aspetto più sottile */
+    font-family: 'Geist Mono', monospace; /* Usa Roboto per i link */
+    color: #335a66; /* Un grigio scuro per un aspetto più sottile */
     text-decoration: blink; 
     transition: color 0.2s ease-in-out, transform 0.2s ease-in-out; /* Transizione morbida per il colore e una leggera trasformazione */
 }
@@ -168,30 +153,6 @@ a {
 .dark-theme a:hover {
     color: #7f3a7a; /* Grigio più scuro al hover per il tema notte */
     text-decoration: blink; /* Sottolineatura al hover nel tema notte */
-}
-
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .profile-photo {
-        width: 100px;  /* Riduci la dimensione della foto per schermi piccoli */
-        height: 100px;
-    }
-
-    .text-content, .social-icons {
-        width: 100%;  /* Usa l'intera larghezza disponibile */
-    }
-
-    nav ul {
-        flex-direction: column; /* Stack nav items vertically on small screens */
-    }
-
-    section {
-        padding: 15px; /* Riduci il padding per più spazio */
-    }
 }
 
 @media (max-width: 768px) {

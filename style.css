@@ -13,26 +13,32 @@ body {
     padding: 20px;
 }
 
+
 /* Navbar */
 nav ul {
     display: flex;
+    list-style: none;
     justify-content: center;
-    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    padding: 10px 15px;
 }
 
 nav ul li a:hover {
     color: #0056b3;
 }
+
 
 /* Stile della foto del profilo */
 .profile-photo {
@@ -45,7 +51,7 @@ nav ul li a:hover {
 /* Adattamenti per schermi piccoli */
 @media (max-width: 768px) {
     .profile-photo {
-        width: 200px;  /* Dimensione ridotta per schermi più piccoli */
+        width:100px;  /* Dimensione ridotta per schermi più piccoli */
         height: auto;
     }
 }
@@ -254,4 +260,42 @@ h2 {
 /* Abstract in Modalità Notte */
 .dark-theme #research .abstract {
     color: #bbbbbb !important; /* Grigio chiaro per leggibilità */
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.3em; /* Riduci leggermente i titoli su dispositivi più piccoli */
+    }
+
+    #research strong {
+        font-size: 1.1em; /* Titoli leggermente più piccoli */
+    }
+
+    #research .abstract {
+        font-size: 0.7em; /* Abstract più piccolo su schermi piccoli */
+    }
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0073e6; /* Colore del bottone */
+    color: #ffffff; /* Colore del testo */
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    display: none; /* Nascondi di default */
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.back-to-top:hover {
+    background-color: #0056b3; /* Colore al passaggio del mouse */
+}
+
+/* Mostra il tasto quando necessario */
+.show-back-to-top {
+    display: block;
 }

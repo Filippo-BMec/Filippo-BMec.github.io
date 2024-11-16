@@ -1,0 +1,150 @@
+/* Impostazioni generali */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Classe personalizzata per il font Geist Mono */
+.geist-mono-body {
+    font-family: "Geist Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: "Geist Mono", monospace; /* Applicazione del font personalizzato */
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.profile-photo {
+    width: 200px; /* Corretta dimensione della foto */
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #0073e6;
+}
+
+header p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Navbar */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin-top: 15px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #0073e6;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #004a99;
+}
+
+/* Sezioni principali */
+section {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-size: 1.8em;
+    color: #0073e6;
+    margin-bottom: 15px;
+}
+
+section p {
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #555;
+}
+
+/* Lista dei paper nella sezione Research */
+ul {
+    margin-left: 20px;
+}
+
+ul li {
+    margin-bottom: 15px;
+}
+
+ul li a {
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+    color: #0073e6;
+}
+
+ul li p {
+    margin: 5px 0 0 10px;
+    color: #555;
+    font-size: 0.9em;
+}
+
+/* Sezione Contatti */
+.social {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.social a:hover {
+    color: #0073e6;
+}
+
+.social i {
+    margin-right: 5px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 5px;
+}

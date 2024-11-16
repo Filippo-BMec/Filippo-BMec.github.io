@@ -36,10 +36,18 @@ nav ul li a:hover {
 
 /* Stile della foto del profilo */
 .profile-photo {
-    width: 150px;
+    width: 150px;  /* Dimensione predefinita per schermi più grandi */
     height: auto;
     border-radius: 50%;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Adattamenti per schermi piccoli */
+@media (max-width: 768px) {
+    .profile-photo {
+        width: 100px;  /* Dimensione ridotta per schermi più piccoli */
+        height: auto;
+    }
 }
 
 /* Contenuto dell'header */

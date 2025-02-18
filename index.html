@@ -60,6 +60,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".toggle-abstract").forEach(button => {
+        button.addEventListener("click", function () {
+            const abstract = this.nextElementSibling;
+            abstract.classList.toggle("open");
+
+            if (abstract.classList.contains("open")) {
+                this.textContent = "Hide Abstract";
+            } else {
+                this.textContent = "Show Abstract";
+            }
+        });
+    });
+});
 </script>
 
 
@@ -68,8 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
     <nav>
         <ul>
             <li><a href="#about">About</a></li>
-            <li><a href="#research">Research</a></li>
+            <li><a href="#research">Published Papers</a></li>
             <li><a href="#working-papers">Work in Progress</a></li>
+            <li><a href="#Projects">Projects</a></li>
         </ul>
     </nav>
 
@@ -88,8 +103,17 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- About Section -->
     <section id="about">
         <h2>About</h2>
-        <p>I am a Ph.D. candidate in Development Economics and Local Systems (<a href="https://www.phd-delos.unifi.it/" target="_blank">DELoS</a>) at the University of Florence under the supervision of prof. <a href="https://cercachi.unifi.it/p-doc2-2013-200052-B-3f2a3c3038282e.html" target="_blank">Marco Bellandi</a>. I am interested in the causes and consequences of industrial agglomeration. In my dissertation, I focus on the Italian dynamics of manufacturing growth led by external economies. I am also interested in how macroeconomic trends affect the geography of production.</p>
-        <p>I was the visiting research assistant of prof. <a href="https://www.tcd.ie/research/profiles/?profile=buciunig" target="_blank">Giulio Buciuni</a> at Trinity College Dublin in 2024. I had a research fellowship at the University of Florence from 2020 to 2021 on cultural economics and artificial intelligence.</p>
+        <p> 
+             I am a Ph.D. candidate in Development Economics and Local Systems (<a href="https://www.phd-delos.unifi.it/" target="_blank">DELoS</a>) at the University of Florence under the supervision of prof. <a href="https://cercachi.unifi.it/p-doc2-2013-200052-B-3f2a3c3038282e.html" target="_blank">Marco Bellandi</a>. 
+             From January 2025 I have a research fellowship at the University of Florence about the life science industry in Tuscany.
+             I am interested in the causes and consequences of industrial agglomeration.
+             In my dissertation, I focus on the Italian dynamics of manufacturing growth led by external economies. 
+             I am also interested in how macroeconomic trends affect the geography of production.
+        </p>
+        <p>
+            I was the visiting research assistant of prof. <a href="https://www.tcd.ie/research/profiles/?profile=buciunig" target="_blank">Giulio Buciuni</a> at Trinity College Dublin in 2024. 
+            I had a research fellowship at the University of Florence from 2020 to 2021 on cultural economics and artificial intelligence.
+        </p>
     </section>
 
     <!-- Research Section -->
@@ -106,6 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         target="_blank">Amir Maghssudipour</a> and <a href="https://scholar.google.com/citations?user=9krNpFQAAAAJ&hl=it" 
                         target="_blank">Marco Bellandi</a></em>
                 </p>
+                <button class="toggle-abstract"> Show Abstract</button>
+                <div class="abstract-content">
                 <p class="abstract"> Cultural and creative production (CCP) can create, renovate, and shape places' socio‐economic environments. 
                 Recent contributions suggest that culture can activate a set of cognitive and productive mechanisms that form the basis of human capital (HC) dynamics. 
                 Bridging these two streams of research, the present paper investigates possible causal relationships between CCP and HC at the regional level. 
@@ -122,6 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         target="_blank">Amir Maghssudipour</a>
                     </em>
                 </p>
+                <button class="toggle-abstract"> Show Abstract</button>
+                <div class="abstract-content">
             <p class="abstract"> Aging affects workers' productivity following an inverted U-shaped relationship. However, the adverse
             effects of an aging population can be offset by endogenous technological adaptations at the aggregate
             level. Despite this, we know little about the intricate relationships operating at the regional level between
@@ -155,6 +183,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         </a>
                         </em>
                     </p> 
+                    <button class="toggle-abstract"> Show Abstract</button>
+                <div class="abstract-content">
                     <p class="abstract"> Social innovation has become an increasingly significant concept within the field of
                         innovation studies and in its practical applications in the real world. While theoretical
                         and case-study literature highlights the role of contextual factors in driving social
@@ -174,7 +204,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     </p>
                 </li>
                 <li>
+                <p>
                     <strong>Local multipliers by plant size: the case of Italy</strong>, with Marco Bellandi
+                </p>
+                    <button class="toggle-abstract"> Show Abstract</button>
+                <div class="abstract-content">
                 <p class="abstract"> New jobs in tradable sectors generate additional jobs in non--tradable sectors.  
                     This paper extends the theory of local multipliers to account for heterogeneity across plant size classes. 
                     Large firms pay wage premia that increase local demand for non--tradable goods and services.
@@ -188,15 +222,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     The joint contribution of such heterogeneous multipliers allows to explain 40.2\% of the variation in the increase of non-tradable jobs after an increase in tradable jobs, which is larger than with an aggregate multiplier.</p> 
                 </li>
             </ul>
-        </section>
-
-    <section id="working-papers">
-        <h2>
-            Working Papers
-        </h2>
+        <h2>Working Papers</h2>
         <ul>
             <li>
+                <p>
                 <strong>Competition and external economies</strong>, 2nd Chapter of the PhD Thesis
+                </p>
+                <button class="toggle-abstract"> Show Abstract</button>
+                <div class="abstract-content">
                 <p class="abstract"> As an industry expands, tasks can be divided. 
                     New specialized skills emerge, workers absorb them, and external economies in the form of knowledge spillovers are generated via labor flows between firms. 
                     While the recent empirical literature is disconnected from the tradition of economic theory, such attempts to estimate spillovers are far from unanimous.
@@ -211,7 +244,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     Finally, there are implications for the unit of local industry analysis when considering the labor market. </p>
             </li>
             <li>
+                <p>
                 <strong>Global shocks, local responses</strong>, 3rd Chapter of the PhD Thesis
+                </p>
+                <button class="toggle-abstract"> Show Abstract</button>
+                <div class="abstract-content">
             <p class="abstract"> When a global shock hits a national economy, places react differently. 
                 Differences in shock responses depend on local economic structures.
                 In this paper, I focus on the role of local input-output linkages in the manufacturing sector in responding to crises.  
@@ -227,20 +264,45 @@ document.addEventListener('DOMContentLoaded', () => {
     
     <section id="working-papers">
         <h2> 
-            Doctoral Thesis
+        Doctoral Thesis
         </h2> 
         <ul>
         <li>
+            <p>
             <strong>Three essays on local industrial growth</strong>,  supervisor: Marco Bellandi 
+            </p>
+            <button class="toggle-abstract"> Show Abstract</button>
+            <div class="abstract-content">
             <p class="abstract">
                 This thesis focuses on the impact of external economies on economic performance resulting from the geographic concentration of manufacturing activities. 
-                In particular, I focus on several aspects of economic performance, such as unemployment fluctuations, productivity, and employment growth; on factors that facilitate external economies, such as competition and local structures; on a specific geographic unit of study, the local labor market area (LMA, divided into industrial districts and other areas); and on manufacturing as a variable that affects local growth (through basic to non-basic multipliers) as well as a variable that is affected by local characteristics.  
-            </p>
+                In particular, I focus on several aspects of economic performance, such as unemployment fluctuations, productivity, and employment growth; on factors that facilitate external economies, such as competition and local structures; on a specific geographic unit of study, the local labor market area (LMA, divided into industrial districts and other areas); and on manufacturing as a variable that affects local growth (through basic to non-basic multipliers) as well as a variable that is affected by local characteristics.
+                The interest in the manufacturing sector as the main engine of growth at the local and national level and in the Italian case has had the effect of directing my analysis towards a specific unit of analysis.   
+                If the geographical concentration refers to the Italian case, industrial districts become the natural unit of investigation, since most of the manufacturing activity is concentrated in them.
+                Recently, these areas have experienced dramatic changes in their industrial structure due to the influx of large firms.
+                While this is not a problem per se, since large firms bring with them higher levels of own efficiency relative to smaller firms, it is a potential threat to localized external economies due to inter-firms division of labor, knowledge spillover and labor pooling. 
+
+                The thesis is divided into three main parts.
+                The first part is introductory.
+                The second part contains the three original articles.
+                The last part summarizes the main findings, provides some original policy implications and gives an overview of my future research perspective. 
+                Each part has two chapters, except for the second part, which has three. 
+
+                The introduction of the dissertation is an attempt to give a sketchy idea of the relevance of the spatial division of labor for the Italian manufacturing sector, where I also discuss theoretically relevant policy implications.
+                The first chapter documents that when tradable (manufacturing + extraction) firms enter a local market, they create additional jobs in non-tradable sectors.
+                It analyzes this mechanism by looking at the size of firms entering the local market.
+                Chapter two provides an analytical model for and analyzes the effect of geographic concentration of manufacturing on local TFP and the role of local competition in moderating such an effect.
+                Chapter three empirically estimates the differential impact of global shocks on LMAs according to the strength of input-output linkages among manufacturing sectors.  
+                Finally, there is a conclusion based on three blocks. 
+                The first block summarizes and provides an overview of the main contributions of the three original chapters of the thesis.
+                The second block retrieves the main estimates obtained in each chapter to document the existence of a trade-off between employment and productivity growth when looking at the national effect of place-based policies.
+                Finally, the third block offers a perspective on my future research.
+                In what follows, I focus on summarizing the three original chapters of the dissertation.  
+
         </li>
         </ul>
     </section>
 
-    <section id="working-papers">
+    <section id="Projects">
     <h2>Projects</h2>
     <ul>
         <li>

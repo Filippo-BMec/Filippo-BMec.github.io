@@ -1,61 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+/* ── Palette ─────────────────────────── */
 :root {
-    --bg-top: #f4f8f8;
-    --bg-bottom: #e2ebea;
-    --surface: rgba(255, 255, 255, 0.84);
-    --surface-solid: #fdfefe;
-    --text: #173033;
-    --muted: #51686b;
-    --accent: #0f7c8b;
-    --accent-strong: #0a5c67;
-    --border: rgba(15, 124, 139, 0.2);
-    --shadow: 0 16px 40px rgba(18, 52, 57, 0.12);
-    --radius: 18px;
+    --bg:            #f2ece0;
+    --surface:       #e9e2d2;
+    --surface-solid: #dfd7c4;
+    --text:          #1c1810;
+    --muted:         #7a6e58;
+    --accent:        #b5722a;
+    --accent-hover:  #d4904a;
+    --accent-fg:     #f2ece0;
+    --border:        #b8ad94;
+    --shadow:        3px 3px 0 var(--border);
+    --radius:        2px;
 }
 
 body.dark-theme {
-    --bg-top: #0f171b;
-    --bg-bottom: #111f24;
-    --surface: rgba(21, 32, 39, 0.86);
-    --surface-solid: #1a2a32;
-    --text: #e5f1f4;
-    --muted: #9cb6bb;
-    --accent: #62c7d3;
-    --accent-strong: #8ad9e2;
-    --border: rgba(98, 199, 211, 0.28);
-    --shadow: 0 16px 44px rgba(2, 10, 13, 0.45);
+    --bg:            #0d0b08;
+    --surface:       #16130e;
+    --surface-solid: #1e1a12;
+    --text:          #e4dcc8;
+    --muted:         #8c7d62;
+    --accent:        #c8882e;
+    --accent-hover:  #e0a848;
+    --accent-fg:     #0d0b08;
+    --border:        #3a3020;
+    --shadow:        3px 3px 0 var(--border);
 }
 
-* {
+/* ── Reset ───────────────────────────── */
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* ── Base ────────────────────────────── */
 body {
     min-height: 100vh;
-    font-family: "Manrope", sans-serif;
+    font-family: "IBM Plex Mono", "Courier New", monospace;
+    font-size: 0.88rem;
     color: var(--text);
-    line-height: 1.65;
-    background: linear-gradient(155deg, var(--bg-top), var(--bg-bottom));
+    line-height: 1.8;
+    background-color: var(--bg);
     padding: 28px 20px 40px;
 }
 
-body::before {
+/* Scanline overlay */
+body::after {
     content: "";
     position: fixed;
     inset: 0;
-    z-index: -1;
-    background:
-        radial-gradient(circle at 10% 8%, rgba(15, 124, 139, 0.14), transparent 30%),
-        radial-gradient(circle at 88% 18%, rgba(12, 96, 107, 0.1), transparent 26%),
-        radial-gradient(circle at 48% 86%, rgba(255, 255, 255, 0.2), transparent 32%);
+    z-index: 9999;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0, 0, 0, 0.022) 3px,
+        rgba(0, 0, 0, 0.022) 4px
+    );
+}
+
+body.dark-theme::after {
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0, 0, 0, 0.06) 3px,
+        rgba(0, 0, 0, 0.06) 4px
+    );
 }
 
 .site-shell {
-    width: min(980px, 100%);
+    width: min(960px, 100%);
     margin: 0 auto;
 }
 
+/* ── Nav ─────────────────────────────── */
 .site-nav {
     position: sticky;
     top: 12px;
@@ -65,18 +87,17 @@ body::before {
     align-items: center;
     justify-content: space-between;
     gap: 10px 24px;
-    padding: 14px 18px;
-    margin-bottom: 24px;
+    padding: 12px 16px;
+    margin-bottom: 22px;
     background: var(--surface);
-    border: 1px solid var(--border);
-    backdrop-filter: blur(10px);
+    border: 1.5px solid var(--border);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
 
 .brand {
     font-family: "Cormorant Garamond", serif;
-    font-size: 1.45rem;
+    font-size: 1.4rem;
     letter-spacing: 0.02em;
     font-weight: 600;
     color: var(--text);
@@ -86,7 +107,7 @@ body::before {
 .site-nav ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 4px;
     list-style: none;
 }
 
@@ -97,23 +118,29 @@ body::before {
 
 .site-nav ul a {
     display: inline-block;
-    font-size: 0.92rem;
-    padding: 8px 12px;
-    border-radius: 999px;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
 .site-nav ul a:hover,
 .site-nav ul a.active {
     background: var(--accent);
-    color: #f4ffff;
+    color: var(--accent-fg);
+    border-color: var(--accent);
 }
 
+/* ── Page Hero ───────────────────────── */
 .page-hero {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     padding: 24px;
     background: var(--surface);
-    border: 1px solid var(--border);
+    border: 1.5px solid var(--border);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
@@ -125,16 +152,17 @@ body::before {
 .header-content {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    gap: 20px;
+    align-items: flex-start;
+    gap: 24px;
 }
 
 .profile-photo {
-    width: min(220px, 100%);
-    border-radius: 20px;
-    border: 2px solid var(--border);
+    width: min(200px, 100%);
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
     object-fit: cover;
-    box-shadow: 0 12px 28px rgba(12, 49, 57, 0.2);
+    box-shadow: var(--shadow);
+    filter: sepia(0.15) contrast(1.05);
 }
 
 .text-content {
@@ -144,106 +172,125 @@ body::before {
 
 .eyebrow {
     text-transform: uppercase;
-    letter-spacing: 0.16em;
-    font-size: 0.72rem;
-    color: var(--muted);
-    margin-bottom: 4px;
+    letter-spacing: 0.2em;
+    font-size: 0.68rem;
+    color: var(--accent);
+    margin-bottom: 6px;
 }
 
-h1,
-h2,
-.brand {
+/* ── Typography ──────────────────────── */
+h1, h2, .brand {
     font-family: "Cormorant Garamond", serif;
 }
 
 h1 {
-    font-size: clamp(2rem, 6vw, 2.9rem);
+    font-size: clamp(2rem, 6vw, 2.8rem);
     line-height: 1.1;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 h2 {
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    line-height: 1.1;
-    margin-bottom: 12px;
+    font-size: clamp(1.25rem, 3.5vw, 1.7rem);
+    line-height: 1.15;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid var(--border);
 }
 
+/* ── Main Grid ───────────────────────── */
 main {
     display: grid;
-    gap: 22px;
+    gap: 20px;
 }
 
+/* ── Content Card ────────────────────── */
 .content-card {
     padding: 24px;
     background: var(--surface);
-    border: 1px solid var(--border);
+    border: 1.5px solid var(--border);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
 
 .content-card p + p {
-    margin-top: 12px;
+    margin-top: 10px;
 }
 
+/* ── Links ───────────────────────────── */
 a {
-    color: var(--accent-strong);
-    text-decoration-thickness: 1.5px;
-    text-underline-offset: 2px;
-    transition: color 0.2s ease;
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color 0.15s;
 }
 
 a:hover {
-    color: var(--accent);
+    color: var(--accent-hover);
 }
 
+/* ── Quick Grid ──────────────────────── */
 .quick-grid {
     margin-top: 16px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    gap: 8px;
 }
 
 .quick-link {
     display: block;
-    padding: 11px 14px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
     background: var(--surface-solid);
     text-decoration: none;
-    color: var(--text);
+    color: var(--muted);
+    font-size: 0.75rem;
     font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    transition: border-color 0.15s, color 0.15s, box-shadow 0.15s;
 }
 
 .quick-link:hover {
     border-color: var(--accent);
     color: var(--accent);
+    box-shadow: 2px 2px 0 var(--accent);
 }
 
+/* ── Section List ────────────────────── */
 .section-list {
     list-style: none;
     display: grid;
-    gap: 20px;
+    gap: 14px;
 }
 
 .section-list li {
-    padding: 14px 16px;
-    border-radius: 14px;
-    border: 1px solid var(--border);
+    padding: 16px;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
     background: var(--surface-solid);
+    box-shadow: 2px 2px 0 var(--border);
 }
 
 .section-list strong {
     display: block;
-    font-size: 1.04rem;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 4px;
 }
 
 .section-list p {
     color: var(--muted);
+    font-size: 0.83rem;
 }
 
+/* ── Abstract Toggle ─────────────────── */
 .abstract-content {
     display: none;
-    margin-top: 10px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border);
 }
 
 .abstract-content.open {
@@ -252,39 +299,50 @@ a:hover {
 
 .abstract {
     color: var(--text);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    line-height: 1.75;
 }
 
 .toggle-abstract {
     margin-top: 10px;
-    border: 1px solid transparent;
-    border-radius: 999px;
-    background: var(--accent);
-    color: #f4ffff;
-    padding: 6px 14px;
-    font-size: 0.85rem;
-    font-family: "Manrope", sans-serif;
+    border: 1.5px solid var(--accent);
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--accent);
+    padding: 5px 12px;
+    font-size: 0.75rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: filter 0.2s ease;
+    transition: background 0.15s, color 0.15s;
+}
+
+.toggle-abstract::before {
+    content: "> ";
 }
 
 .toggle-abstract:hover {
-    filter: brightness(1.08);
+    background: var(--accent);
+    color: var(--accent-fg);
 }
 
+/* ── Theme Toggle ────────────────────── */
 .theme-toggle {
     position: fixed;
-    top: 22px;
+    top: 20px;
     right: 20px;
-    width: 44px;
-    height: 44px;
-    border: 1px solid var(--border);
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
     background: var(--surface);
     color: var(--text);
-    box-shadow: var(--shadow);
+    box-shadow: 2px 2px 0 var(--border);
     cursor: pointer;
     z-index: 20;
+    transition: background 0.15s;
 }
 
 .theme-toggle i {
@@ -303,10 +361,11 @@ body.dark-theme .theme-toggle .fa-moon {
     display: inline;
 }
 
+/* ── Footer ──────────────────────────── */
 .site-footer {
-    margin-top: 24px;
-    padding: 20px;
-    border: 1px solid var(--border);
+    margin-top: 20px;
+    padding: 16px 20px;
+    border: 1.5px solid var(--border);
     border-radius: var(--radius);
     background: var(--surface);
     box-shadow: var(--shadow);
@@ -315,37 +374,46 @@ body.dark-theme .theme-toggle .fa-moon {
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 14px;
+    gap: 16px;
 }
 
 .social-icons a {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     text-decoration: none;
-    color: var(--accent-strong);
+    color: var(--muted);
+    transition: color 0.15s;
 }
 
+.social-icons a:hover {
+    color: var(--accent);
+}
+
+/* ── Back to Top ─────────────────────── */
 .back-to-top {
     position: fixed;
     right: 20px;
     bottom: 20px;
     display: none;
-    border-radius: 999px;
-    padding: 8px 12px;
+    border-radius: var(--radius);
+    padding: 7px 12px;
     background: var(--surface-solid);
-    border: 1px solid var(--border);
-    color: var(--text);
+    border: 1.5px solid var(--border);
+    color: var(--muted);
     text-decoration: none;
-    font-size: 0.82rem;
-    box-shadow: var(--shadow);
+    font-size: 0.72rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 0 var(--border);
 }
 
 .back-to-top.show-back-to-top {
     display: inline-block;
 }
 
+/* ── Responsive ──────────────────────── */
 @media (max-width: 860px) {
     body {
-        padding-top: 84px;
+        padding-top: 80px;
     }
 
     .site-nav {
@@ -366,19 +434,19 @@ body.dark-theme .theme-toggle .fa-moon {
     .page-hero,
     .content-card,
     .site-footer {
-        padding: 18px;
+        padding: 16px;
     }
 
     .profile-photo {
-        width: min(160px, 100%);
+        width: min(150px, 100%);
     }
 
     .site-nav ul {
-        gap: 4px;
+        gap: 3px;
     }
 
     .site-nav ul a {
-        font-size: 0.83rem;
-        padding: 7px 10px;
+        font-size: 0.68rem;
+        padding: 5px 8px;
     }
 }

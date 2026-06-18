@@ -32,6 +32,19 @@ document.addEventListener("DOMContentLoaded", () => {
         updateBackToTop();
     }
 
+    const emailContact = document.querySelector("#email-contact");
+    if (emailContact) {
+        emailContact.addEventListener("click", (event) => {
+            event.preventDefault();
+            const address = [
+                102, 46, 98, 101, 114, 116, 105, 57, 51,
+                64,
+                103, 109, 97, 105, 108, 46, 99, 111, 109
+            ].map((code) => String.fromCharCode(code)).join("");
+            window.location.href = `mailto:${address}`;
+        });
+    }
+
     document.querySelectorAll(".toggle-abstract").forEach((button) => {
         button.addEventListener("click", () => {
             const abstract = button.nextElementSibling;

@@ -61,7 +61,8 @@ Lo script:
 1. compila `../CV/main.tex` con `latexmk`;
 2. copia `../CV/main.pdf` nel sito come `CV.pdf`;
 3. elimina i file temporanei LaTeX;
-4. verifica che i due PDF coincidano.
+4. verifica che i due PDF coincidano;
+5. aggiorna il parametro di versione del link in `index.html`, evitando che il browser mostri una vecchia copia in cache.
 
 Lo script risolve automaticamente i percorsi dei due repository. Eseguilo dalla cartella del sito come mostrato sopra, oppure richiamalo tramite il suo percorso completo. Prima del deploy, verifica lo stato di entrambi i repository:
 

@@ -24,4 +24,9 @@ if ! cmp -s "$CV_DIR/main.pdf" "$SITE_DIR/CV.pdf"; then
     exit 1
 fi
 
+CV_VERSION=$(shasum "$SITE_DIR/CV.pdf" | awk '{print substr($1, 1, 12)}')
+INDEX_TMP="$SITE_DIR/index.html.tmp"
+sed -E "s/CV\\.pdf(\\?v=[^\"]*)?/CV.pdf?v=$CV_VERSION/" "$SITE_DIR/index.html" > "$INDEX_TMP"
+mv "$INDEX_TMP" "$SITE_DIR/index.html"
+
 echo "CV compiled and copied to $SITE_DIR/CV.pdf"

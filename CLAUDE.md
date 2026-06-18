@@ -1,58 +1,49 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 ## Project Overview
 
-Personal academic website for Filippo Berti Mecocci (PhD in Development Economics, University of Florence). Deployed via GitHub Pages — pushing to `main` publishes the site.
+Personal academic website for Filippo Berti Mecocci, deployed through GitHub Pages from `main`.
+The site is plain HTML, CSS, and JavaScript, with no package manager or build framework.
+
+## Repository Layout
+
+This repository is intentionally separate from the adjacent Overleaf repository:
+
+- `../CV` — LaTeX sources and compiled `main.pdf`
+- this repository — website sources and public `CV.pdf`
+
+Use `./update_cv.sh` to compile the adjacent CV and copy the resulting PDF into this repository.
+Do not edit `CV.pdf` manually.
 
 ## Local Development
 
 ```bash
 python3 -m http.server 8000
-# then visit http://localhost:8000
 ```
 
-No build tools, package managers, or frameworks. Everything is plain HTML/CSS/JS.
+Then visit `http://localhost:8000`.
 
 ## Architecture
 
-**Multi-page static site** — each page is a self-contained HTML file sharing one CSS file and one JS file:
-
-- `index.html` — home with profile photo and research snapshot
-- `about.html` — academic background
-- `papers.html` — peer-reviewed publications with expandable abstracts
-- `work-in-progress.html` — under review / working papers / thesis
-- `projects.html` — ongoing projects
+- `index.html` — home, profile, contact link, and research snapshot
+- `about.html` — academic positions and research interests
+- `research.html` — canonical research page for publications and projects
 - `teaching.html` — teaching activities
-- `style.css` — all layout, typography, theming, and responsive rules
-- `site.js` — three behaviors: light/dark theme toggle, back-to-top button, abstract expand/collapse
+- `papers.html`, `projects.html`, `work-in-progress.html` — compatibility redirects to `research.html`
+- `style.css` — layout, typography, themes, and responsive rules
+- `site.js` — theme toggle, back-to-top behavior, abstract toggles, and email-link construction
+- `CV.pdf` — public CV generated from `../CV/main.tex`
+- `update_cv.sh` — reproducible CV compilation and copy workflow
 
-**Design system** — retro terminal aesthetic. CSS custom properties in `:root` / `body.dark-theme` control the entire palette (copper/parchment tones). Two font families:
-- `IBM Plex Mono` — body text and UI (imported in `style.css`)
-- `Cormorant Garamond` — headings and brand (imported in each HTML `<head>`)
+## Editing Rules
 
-## Key Patterns
+- Keep the four-page navigation consistent across `index.html`, `about.html`, `research.html`, and `teaching.html`.
+- Treat `research.html` as the only source of truth for research content.
+- Use `../CV/ENTRY.tex` as the reference when synchronizing positions and research entries.
+- Run `./update_cv.sh` after changing the CV.
+- Verify both repositories independently with `git status`; never treat the parent `Website` directory as a Git repository.
 
-**Every page head** must include both Google Font imports, `style.css`, Font Awesome, and Academicons. Copy the `<head>` block from an existing page when adding a new page.
+## Interactive Patterns
 
-**Active nav link** — set `class="active"` on the `<a>` tag matching the current page inside `.site-nav ul`.
-
-**Publications with abstracts** use this structure:
-```html
-<ul class="section-list">
-  <li>
-    <strong><a href="...">Paper Title</a></strong>
-    <p><em>Journal, year with Co-author</em></p>
-    <button class="toggle-abstract" type="button">Show Abstract</button>
-    <div class="abstract-content">
-      <p class="abstract">Abstract text...</p>
-    </div>
-  </li>
-</ul>
-```
-`site.js` wires up all `.toggle-abstract` buttons automatically on `DOMContentLoaded` — the button must be immediately before `.abstract-content` (uses `button.nextElementSibling`).
-
-**Theme persistence** — stored in `localStorage` under key `fbm-theme`. Dark mode adds class `dark-theme` to `<body>`.
-
-**Page hero variants** — `index.html` uses `.page-hero` with `.header-content` (photo + text columns); all other pages use `.page-hero.page-hero-sm` (title only, no photo).
+Publication abstracts require a `.toggle-abstract` button immediately followed by `.abstract-content`.
+The theme preference is stored in `localStorage` under `fbm-theme`.

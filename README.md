@@ -9,8 +9,10 @@ Sito personale accademico di **Filippo Berti Mecocci**, ora organizzato in modal
 - `research.html`: pubblicazioni, lavori under review, working papers, dormant papers e tesi.
 - `teaching.html`: attività didattiche.
 - `CV.pdf`: versione del curriculum pubblicata e collegata dalla home page.
+- `update_cv.sh`: compila il repository LaTeX adiacente e aggiorna `CV.pdf`.
 - `style.css`: stile globale del sito (layout, tipografia, responsive, temi).
 - `site.js`: logica client-side (tema, toggle abstract, back-to-top).
+- `papers.html`, `projects.html`, `work-in-progress.html`: redirect mantenuti per compatibilità con i vecchi URL.
 
 ## Funzionalità principali
 
@@ -48,13 +50,25 @@ Website/
     └── index.html
 ```
 
-La home page collega il file `CV.pdf` presente nel repository del sito. Dopo aver aggiornato e compilato il curriculum, copia il nuovo PDF nel sito:
+La home page collega il file `CV.pdf` presente nel repository del sito. Dopo aver aggiornato il curriculum, esegui:
 
 ```bash
-cp ../CV/main.pdf CV.pdf
+./update_cv.sh
 ```
 
-Il comando deve essere eseguito dalla cartella `Filippo-BMec.github.io`. Prima del deploy, verifica che `CV.pdf` compaia tra i file modificati in `git status`.
+Lo script:
+
+1. compila `../CV/main.tex` con `latexmk`;
+2. copia `../CV/main.pdf` nel sito come `CV.pdf`;
+3. elimina i file temporanei LaTeX;
+4. verifica che i due PDF coincidano.
+
+Lo script risolve automaticamente i percorsi dei due repository. Eseguilo dalla cartella del sito come mostrato sopra, oppure richiamalo tramite il suo percorso completo. Prima del deploy, verifica lo stato di entrambi i repository:
+
+```bash
+git -C ../CV status
+git status
+```
 
 Una volta pubblicato su GitHub Pages, il curriculum è disponibile all'indirizzo:
 
@@ -67,8 +81,8 @@ https://filippo-bmec.github.io/CV.pdf
 Il sito è pensato per GitHub Pages.  
 Per pubblicare gli aggiornamenti:
 
-1. Aggiorna i contenuti HTML usando come riferimento `../CV/ENTRY.tex`.
-2. Compila il curriculum nella cartella `../CV`.
-3. Copia `../CV/main.pdf` in `CV.pdf`.
-4. Controlla le modifiche con `git status`.
-5. Esegui commit e push sul branch configurato per GitHub Pages, tipicamente `main`.
+1. Aggiorna il repository `../CV` e, quando necessario, i contenuti HTML usando `../CV/ENTRY.tex` come riferimento.
+2. Esegui `./update_cv.sh`.
+3. Controlla separatamente lo stato dei repository `CV` e `Filippo-BMec.github.io`.
+4. Esegui commit e push nel repository CV per sincronizzare Overleaf.
+5. Esegui commit e push nel repository del sito per pubblicare GitHub Pages.

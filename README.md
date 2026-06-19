@@ -50,7 +50,7 @@ Website/
     └── index.html
 ```
 
-La home page collega il file `CV.pdf` presente nel repository del sito. Dopo aver aggiornato il curriculum, esegui:
+La home page collega il file `CV.pdf` presente nel repository del sito. Per copiare il `main.pdf` più recente senza pubblicarlo, esegui:
 
 ```bash
 ./update_cv.sh
@@ -58,11 +58,23 @@ La home page collega il file `CV.pdf` presente nel repository del sito. Dopo ave
 
 Lo script:
 
-1. compila `../CV/main.tex` con `latexmk`;
-2. copia `../CV/main.pdf` nel sito come `CV.pdf`;
-3. elimina i file temporanei LaTeX;
-4. verifica che i due PDF coincidano;
-5. aggiorna il parametro di versione del link in `index.html`, evitando che il browser mostri una vecchia copia in cache.
+1. copia `../CV/main.pdf` nel sito come `CV.pdf`;
+2. verifica che i due PDF coincidano;
+3. aggiorna il parametro di versione del link in `index.html`, evitando che il browser mostri una vecchia copia in cache.
+
+Per compilare prima i sorgenti LaTeX:
+
+```bash
+./update_cv.sh --compile
+```
+
+Per copiare, committare e pubblicare automaticamente il CV sul sito:
+
+```bash
+./update_cv.sh --publish
+```
+
+Il repository `CV` usa `.githooks/post-merge`: dopo ogni `git pull`, il nuovo `main.pdf` viene copiato e pubblicato automaticamente. Questa automazione richiede che `core.hooksPath` sia configurato su `.githooks`.
 
 Lo script risolve automaticamente i percorsi dei due repository. Eseguilo dalla cartella del sito come mostrato sopra, oppure richiamalo tramite il suo percorso completo. Prima del deploy, verifica lo stato di entrambi i repository:
 
@@ -83,7 +95,7 @@ Il sito è pensato per GitHub Pages.
 Per pubblicare gli aggiornamenti:
 
 1. Aggiorna il repository `../CV` e, quando necessario, i contenuti HTML usando `../CV/ENTRY.tex` come riferimento.
-2. Esegui `./update_cv.sh`.
+2. Esegui `./update_cv.sh --publish`, oppure usa `git pull` nel repository CV se l'hook automatico è configurato.
 3. Controlla separatamente lo stato dei repository `CV` e `Filippo-BMec.github.io`.
 4. Esegui commit e push nel repository CV per sincronizzare Overleaf.
 5. Esegui commit e push nel repository del sito per pubblicare GitHub Pages.

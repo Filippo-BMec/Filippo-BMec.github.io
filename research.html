@@ -10,8 +10,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        (function () {
+            var theme;
+            try { theme = localStorage.getItem("fbm-theme"); } catch (error) {}
+            if (theme !== "light" && theme !== "dark") {
+                theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            }
+            document.documentElement.dataset.theme = theme;
+        })();
+    </script>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css">
 </head>
 <body id="top">
@@ -28,19 +38,28 @@
                 <li><a href="about.html">About</a></li>
                 <li><a class="active" href="research.html">Research</a></li>
                 <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="CV.pdf?v=9ffb4bca6b84" target="_blank" rel="noopener noreferrer">CV</a></li>
             </ul>
         </nav>
 
         <header class="page-hero page-hero-sm">
             <h1>Research</h1>
             <p>Full pipeline from published work to early-stage projects.</p>
+            <nav class="section-jump" aria-label="Research sections">
+                <a href="#publications">Publications <span>3</span></a>
+                <a href="#other-publications">Other <span>1</span></a>
+                <a href="#under-review">Under review <span>4</span></a>
+                <a href="#working-papers">Working papers <span>2</span></a>
+                <a href="#dormant-papers">Dormant <span>2</span></a>
+                <a href="#thesis">Thesis</a>
+            </nav>
         </header>
 
         <main>
-            <section class="content-card">
+            <section class="content-card" id="publications">
                 <h2>Peer-Reviewed Publications</h2>
                 <ul class="section-list">
-                    <li>
+                    <li id="cultural-creative-production">
                         <strong>
                             <a href="https://www.sciencedirect.com/science/article/pii/S1056819023000672" target="_blank" rel="noopener noreferrer">The effect of cultural and creative production on human capital: Evidence from European regions</a>
                         </strong>
@@ -51,13 +70,13 @@
                                 <a href="https://scholar.google.com/citations?user=9krNpFQAAAAJ&hl=it" target="_blank" rel="noopener noreferrer">Marco Bellandi</a>
                             </em>
                         </p>
-                        <p><a href="papers/pirs.pdf" download>Download PDF</a></p>
+                        <p class="paper-links"><a href="https://www.sciencedirect.com/science/article/pii/S1056819023000672" target="_blank" rel="noopener noreferrer">Article</a><a href="papers/pirs.pdf" download>PDF</a></p>
                         <button class="toggle-abstract" type="button">Show Abstract</button>
                         <div class="abstract-content">
                             <p class="abstract">Cultural and creative production (CCP) can create, renovate, and shape places' socio-economic environments. Recent contributions suggest that culture can activate a set of cognitive and productive mechanisms that form the basis of human capital (HC) dynamics. Bridging these two streams of research, the present paper investigates possible causal relationships between CCP and HC at the regional level. Empirically, we used measures of employment in the cultural and creative sectors as proxies for CCP and applied generalized method of moments (GMM) panel estimations to yearly data from 283 European NUTS 2 regions from 2014 to 2020. The findings suggest that CCP positively affects regions' average levels of HC even controlling for several economic and demographic factors.</p>
                         </div>
                     </li>
-                    <li>
+                    <li id="aging-external-economies">
                         <strong>
                             <a href="https://academic.oup.com/icc/advance-article/doi/10.1093/icc/dtaf006/8078645" target="_blank" rel="noopener noreferrer">Is aging in the regional labor market wiping out localized external economies? Evidence from European manufacturing</a>
                         </strong>
@@ -66,13 +85,13 @@
                                 <a href="https://scholar.google.com/citations?user=dKOlftYAAAAJ&hl=it&oi=ao" target="_blank" rel="noopener noreferrer">Amir Maghssudipour</a>
                             </em>
                         </p>
-                        <p><a href="papers/icc.pdf" download>Download PDF</a></p>
+                        <p class="paper-links"><a href="https://academic.oup.com/icc/advance-article/doi/10.1093/icc/dtaf006/8078645" target="_blank" rel="noopener noreferrer">Article</a><a href="papers/icc.pdf" download>PDF</a></p>
                         <button class="toggle-abstract" type="button">Show Abstract</button>
                         <div class="abstract-content">
                             <p class="abstract">Aging affects workers' productivity following an inverted U-shaped relationship. However, the adverse effects of an aging population can be offset by endogenous technological adaptations at the aggregate level. Despite this, we know little about the intricate relationships operating at the regional level between aging, localized external economies and their effects on productivity. To fill this gap, we rely on data about manufacturing firms across eight European countries at the Nuts-2 level and adopt an instrumental variable approach to deal with residual endogeneity. Our findings indicate that while the impact of aging on productivity is positive, localized external effects on productivity disappear when the proportion of the workforce in the older age bracket reaches 19.68% for specialization economies and 24.28% for urbanization economies.</p>
                         </div>
                     </li>
-                    <li>
+                    <li id="territorial-drivers">
                         <strong>
                             <a href="https://doi.org/10.1080/00343404.2026.2702581" target="_blank" rel="noopener noreferrer">Territorial drivers of social innovations</a>
                         </strong>
@@ -83,7 +102,7 @@
                                 <a href="https://scholar.google.com/citations?user=dKOlftYAAAAJ&amp;hl=it&amp;oi=ao" target="_blank" rel="noopener noreferrer">Amir Maghssudipour</a>
                             </em>
                         </p>
-                        <p><a href="papers/territorial-drivers-social-innovations.pdf" download>Download PDF</a></p>
+                        <p class="paper-links"><a href="https://doi.org/10.1080/00343404.2026.2702581" target="_blank" rel="noopener noreferrer">Article</a><a href="papers/territorial-drivers-social-innovations.pdf" download>PDF</a></p>
                         <button class="toggle-abstract" type="button">Show Abstract</button>
                         <div class="abstract-content">
                             <p class="abstract">What territorial conditions enable social innovation? This paper examines whether accumulated technological knowledge, density externalities and public funding help explain social innovation intensity across European regions. Relying on a regional dataset originally assembled from multiple sources and adopting different econometric specifications, findings suggest no significant role for accumulated technological knowledge, while population density is positively associated with social innovation intensity. Public funding also matters, but only in low-density areas.</p>
@@ -92,7 +111,7 @@
                 </ul>
             </section>
 
-            <section class="content-card">
+            <section class="content-card" id="other-publications">
                 <h2>Other Publications</h2>
                 <ul class="section-list">
                     <li>
@@ -100,15 +119,15 @@
                             <a href="https://www.disei.unifi.it/upload/sub/pubblicazioni/repec/pdf/wp16_2025.pdf" target="_blank" rel="noopener noreferrer">Le Startup Innovative nelle Scienze della Vita</a>
                         </strong>
                         <p><em>Technical report, 2025 — with Marco Bellandi, Gianluca Fiorindi, Silvia Giordano, Sara Pucci, and Silvia Ramondetta</em></p>
-                        <p><a href="papers/innovative-startups-life-sciences.pdf" download>Download PDF</a></p>
+                        <p class="paper-links"><a href="https://www.disei.unifi.it/upload/sub/pubblicazioni/repec/pdf/wp16_2025.pdf" target="_blank" rel="noopener noreferrer">Report</a><a href="papers/innovative-startups-life-sciences.pdf" download>PDF</a></p>
                     </li>
                 </ul>
             </section>
 
-            <section class="content-card">
+            <section class="content-card" id="under-review">
                 <h2>Under Review</h2>
                 <ul class="section-list">
-                    <li>
+                    <li id="district-effect">
                         <strong>Global Shocks, Local Responses: The Labor–Market District Effect</strong>
                         <p>with Marco Bellandi</p>
                         <button class="toggle-abstract" type="button">Show Abstract</button>
@@ -142,7 +161,7 @@
                 </ul>
             </section>
 
-            <section class="content-card">
+            <section class="content-card" id="working-papers">
                 <h2>Working Papers</h2>
                 <ul class="section-list">
                     <li>
@@ -156,7 +175,7 @@
                 </ul>
             </section>
 
-            <section class="content-card">
+            <section class="content-card" id="dormant-papers">
                 <h2>Dormant Papers</h2>
                 <ul class="section-list">
                     <li>
@@ -170,13 +189,13 @@
                 </ul>
             </section>
 
-            <section class="content-card">
+            <section class="content-card" id="thesis">
                 <h2>Doctoral Thesis</h2>
                 <ul class="section-list">
                     <li>
                         <strong>Three essays on local industrial growth</strong>
                         <p>Supervisor: Marco Bellandi — University of Florence, April 2025.</p>
-                        <p><a href="papers/phd-thesis-signed.pdf" download>Download PDF</a></p>
+                        <p class="paper-links"><a href="papers/phd-thesis-signed.pdf" download>PDF</a></p>
                         <button class="toggle-abstract" type="button">Show Abstract</button>
                         <div class="abstract-content">
                             <p class="abstract">This thesis focuses on how external economies influence economic performance under geographic concentration of manufacturing activities. It studies unemployment fluctuations, productivity, and employment growth; factors that facilitate external economies, such as competition and local structures; and the local labor market area as a unit of analysis. The dissertation includes three original chapters and a final policy-oriented conclusion, with specific attention to Italian manufacturing dynamics and industrial districts.</p>
@@ -188,10 +207,11 @@
 
         <footer class="site-footer">
             <div class="social-icons">
+                <a href="#" data-email rel="nofollow" title="Email"><i class="fas fa-envelope"></i></a>
                 <a href="https://github.com/Filippo-BMec" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://orcid.org/0009-0006-8134-4092" target="_blank" rel="noopener noreferrer" title="ORCID"><i class="ai ai-orcid"></i></a>
                 <a href="https://scholar.google.com/citations?user=FUmIl8QAAAAJ&hl=it" target="_blank" rel="noopener noreferrer" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
-                <a href="https://x.com/Filippo_BMec" target="_blank" rel="noopener noreferrer" title="X"><i class="fab fa-twitter"></i></a>
+                <a href="https://x.com/Filippo_BMec" target="_blank" rel="noopener noreferrer" title="X"><i class="fab fa-x-twitter"></i></a>
                 <a href="https://www.linkedin.com/in/filippo-berti-mecocci-2a18a2116/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </footer>

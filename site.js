@@ -1,20 +1,23 @@
 const THEME_KEY = "fbm-theme";
 
+// The initial theme is set by the inline script in each page's <head>,
+// before first paint, so that dark mode does not flash light on load.
 function applyTheme(theme) {
-    document.body.classList.toggle("dark-theme", theme === "dark");
+    document.documentElement.dataset.theme = theme;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const savedTheme = localStorage.getItem(THEME_KEY) || "light";
-    applyTheme(savedTheme);
-
     const themeToggle = document.querySelector(".theme-toggle");
     if (themeToggle) {
         themeToggle.addEventListener("click", () => {
-            const isDark = document.body.classList.contains("dark-theme");
+            const isDark = document.documentElement.dataset.theme === "dark";
             const nextTheme = isDark ? "light" : "dark";
             applyTheme(nextTheme);
-            localStorage.setItem(THEME_KEY, nextTheme);
+            try {
+                localStorage.setItem(THEME_KEY, nextTheme);
+            } catch (error) {
+                // Storage can be unavailable (e.g. private browsing); the toggle still works.
+            }
         });
     }
 
@@ -32,9 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
         updateBackToTop();
     }
 
-    const emailContact = document.querySelector("#email-contact");
-    if (emailContact) {
-        emailContact.addEventListener("click", (event) => {
+    document.querySelectorAll("[data-email]").forEach((emailLink) => {
+        emailLink.addEventListener("click", (event) => {
             event.preventDefault();
             const address = [
                 102, 46, 98, 101, 114, 116, 105, 57, 51,
@@ -43,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ].map((code) => String.fromCharCode(code)).join("");
             window.location.href = `mailto:${address}`;
         });
-    }
+    });
 
     document.querySelectorAll(".toggle-abstract").forEach((button) => {
         button.addEventListener("click", () => {

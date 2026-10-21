@@ -17,7 +17,7 @@ Sito personale accademico di **Filippo Berti Mecocci**, ora organizzato in modal
 ## Funzionalità principali
 
 - Layout responsive desktop/mobile.
-- Tema chiaro/scuro con salvataggio preferenza (`localStorage`).
+- Tema chiaro/scuro con salvataggio preferenza (`localStorage`); in assenza di preferenza segue il tema del sistema.
 - Pulsante `Back to top` visibile durante lo scroll.
 - Pulsanti `Show Abstract / Hide Abstract` nelle pagine con pubblicazioni.
 - Navbar condivisa su tutte le pagine.
@@ -60,7 +60,9 @@ Lo script:
 
 1. copia `../CV/main.pdf` nel sito come `CV.pdf`;
 2. verifica che i due PDF coincidano;
-3. aggiorna il parametro di versione del link in `index.html`, evitando che il browser mostri una vecchia copia in cache.
+3. aggiorna il parametro di versione dei link al CV nelle quattro pagine principali, evitando che il browser mostri una vecchia copia in cache.
+
+Con `--publish` lo script aggiunge al commit anche le quattro pagine HTML: se contengono altre modifiche non ancora committate, conviene committarle prima.
 
 Per compilare prima i sorgenti LaTeX:
 

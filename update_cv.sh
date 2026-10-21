@@ -45,14 +45,20 @@ if ! cmp -s "$CV_DIR/main.pdf" "$SITE_DIR/CV.pdf"; then
 fi
 
 CV_VERSION=$(shasum "$SITE_DIR/CV.pdf" | awk '{print substr($1, 1, 12)}')
-INDEX_TMP="$SITE_DIR/index.html.tmp"
-sed -E "s/CV\\.pdf(\\?v=[^\"]*)?/CV.pdf?v=$CV_VERSION/" "$SITE_DIR/index.html" > "$INDEX_TMP"
-mv "$INDEX_TMP" "$SITE_DIR/index.html"
+PAGES="index.html about.html research.html teaching.html"
+
+# Every page links the CV from the nav; refresh the cache-busting version in all of them.
+for page in $PAGES; do
+    PAGE_TMP="$SITE_DIR/$page.tmp"
+    sed -E "s/CV\\.pdf(\\?v=[^\"]*)?/CV.pdf?v=$CV_VERSION/g" "$SITE_DIR/$page" > "$PAGE_TMP"
+    mv "$PAGE_TMP" "$SITE_DIR/$page"
+done
 
 echo "CV copied to $SITE_DIR/CV.pdf"
 
 if [ "$PUBLISH" = true ]; then
-    git -C "$SITE_DIR" add CV.pdf index.html
+    # $PAGES is intentionally unquoted so that each page is passed separately.
+    git -C "$SITE_DIR" add CV.pdf $PAGES
 
     if ! git -C "$SITE_DIR" diff --cached --quiet; then
         git -C "$SITE_DIR" commit -m "Update public CV"

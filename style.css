@@ -15,7 +15,7 @@
     --radius:        2px;
 }
 
-body.dark-theme {
+:root[data-theme="dark"] {
     --bg:            #0d0b08;
     --surface:       #16130e;
     --surface-solid: #1e1a12;
@@ -62,7 +62,7 @@ body::after {
     );
 }
 
-body.dark-theme::after {
+:root[data-theme="dark"] body::after {
     background: repeating-linear-gradient(
         0deg,
         transparent,
@@ -158,6 +158,7 @@ body.dark-theme::after {
 
 .profile-photo {
     width: min(200px, 100%);
+    height: auto;
     border-radius: var(--radius);
     border: 1.5px solid var(--border);
     object-fit: cover;
@@ -228,35 +229,6 @@ a:hover {
     color: var(--accent-hover);
 }
 
-/* ── Quick Grid ──────────────────────── */
-.quick-grid {
-    margin-top: 16px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
-    gap: 8px;
-}
-
-.quick-link {
-    display: block;
-    padding: 10px 14px;
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--surface-solid);
-    text-decoration: none;
-    color: var(--muted);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    transition: border-color 0.15s, color 0.15s, box-shadow 0.15s;
-}
-
-.quick-link:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    box-shadow: 2px 2px 0 var(--accent);
-}
-
 /* ── Section List ────────────────────── */
 .section-list {
     list-style: none;
@@ -283,6 +255,89 @@ a:hover {
 .section-list p {
     color: var(--muted);
     font-size: 0.83rem;
+}
+
+/* ── Anchors ─────────────────────────── */
+/* Keep anchored sections and papers clear of the sticky nav. */
+section[id],
+li[id] {
+    scroll-margin-top: 96px;
+}
+
+/* ── Section Jump ────────────────────── */
+.section-jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.section-jump a {
+    padding: 5px 10px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface-solid);
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    transition: border-color 0.15s, color 0.15s;
+}
+
+.section-jump a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.section-jump span {
+    margin-left: 4px;
+    color: var(--accent);
+}
+
+/* ── Paper Links ─────────────────────── */
+.section-list .paper-links {
+    margin-top: 6px;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.paper-links a + a::before {
+    content: "·";
+    display: inline-block;
+    margin: 0 10px;
+    color: var(--muted);
+}
+
+/* ── News ────────────────────────────── */
+.news-list {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+.news-list li {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: 12px;
+}
+
+.news-list time {
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding-top: 2px;
+}
+
+.card-footer-link {
+    margin-top: 14px;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 /* ── Abstract Toggle ─────────────────── */
@@ -353,11 +408,11 @@ a:hover {
     display: none;
 }
 
-body.dark-theme .theme-toggle .fa-sun {
+:root[data-theme="dark"] .theme-toggle .fa-sun {
     display: none;
 }
 
-body.dark-theme .theme-toggle .fa-moon {
+:root[data-theme="dark"] .theme-toggle .fa-moon {
     display: inline;
 }
 
@@ -448,5 +503,10 @@ body.dark-theme .theme-toggle .fa-moon {
     .site-nav ul a {
         font-size: 0.68rem;
         padding: 5px 8px;
+    }
+
+    .news-list li {
+        grid-template-columns: 1fr;
+        gap: 0;
     }
 }

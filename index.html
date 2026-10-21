@@ -7,7 +7,7 @@
     <meta name="description" content="Postdoctoral researcher in economics at the University of Parma">
     <meta property="og:title" content="Filippo Berti Mecocci">
     <meta property="og:description" content="Postdoctoral researcher in economics at the University of Parma">
-    <meta property="og:image" content="https://filippo-bmec.github.io/MLS04115a.jpeg">
+    <meta property="og:image" content="https://filippo-bmec.github.io/profile.jpg">
     <meta property="og:url" content="https://filippo-bmec.github.io">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="google-site-verification" content="9NdjpfqxMlzjrSxHRM-NvvZSQIhl7zWFgCSbxXZKjw4">
@@ -16,8 +16,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        (function () {
+            var theme;
+            try { theme = localStorage.getItem("fbm-theme"); } catch (error) {}
+            if (theme !== "light" && theme !== "dark") {
+                theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            }
+            document.documentElement.dataset.theme = theme;
+        })();
+    </script>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css">
 </head>
 <body id="top">
@@ -34,45 +44,73 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="CV.pdf?v=9ffb4bca6b84" target="_blank" rel="noopener noreferrer">CV</a></li>
             </ul>
         </nav>
 
         <header class="page-hero">
             <div class="header-content">
-                <img src="MLS04115a.jpeg" alt="Filippo Berti Mecocci" class="profile-photo">
+                <img src="profile.jpg" alt="Filippo Berti Mecocci" class="profile-photo" width="482" height="640">
                 <div class="text-content">
                     <p class="eyebrow">Regional, Industrial and Defense Economics</p>
                     <h1>Filippo Berti Mecocci</h1>
                     <p>Postdoctoral Researcher, University of Parma<br>PhD in Development Economics and Local Systems (DELoS), University of Florence</p>
-                    <p>Contact: <a id="email-contact" href="#" rel="nofollow">Send me an email</a></p>
-                    <p>Curriculum Vitae: <a href="CV.pdf?v=9ffb4bca6b84" target="_blank" rel="noopener noreferrer">Download</a></p>
+                    <p>I study how market structures and local production systems shape productivity, employment, and spatial economic outcomes. My recent work examines the aggregate and local effects of Europe's new arms race under the EU Readiness 2030 framework.</p>
+                    <p class="paper-links"><a href="#" data-email rel="nofollow">Email</a><a href="CV.pdf?v=9ffb4bca6b84" target="_blank" rel="noopener noreferrer">CV</a><a href="https://scholar.google.com/citations?user=FUmIl8QAAAAJ&hl=it" target="_blank" rel="noopener noreferrer">Google Scholar</a></p>
                 </div>
             </div>
         </header>
 
         <main>
             <section class="content-card">
-                <h2>Research Snapshot</h2>
-                <p>
-                    <b>Main fields</b>: Empirical Industrial Organization, Labor Economics, and Regional and Urban Economics. <br>
-                    <b>Recent interest</b>: Defense economics, with a focus on the reconfiguration of global value chains in the European defense sector. <br>
-                    <b>Keywords</b>: industrial districts, local labor markets, productivity, external economies, industrial organization, defense value chains. <br>
-                    I study how market structures and local production systems shape productivity, employment, and spatial economic outcomes, with a recent focus on industrial transformation in the European defense sector.
-                </p>
-                <div class="quick-grid">
-                    <a class="quick-link" href="about.html">About</a>
-                    <a class="quick-link" href="research.html">Research Pipeline</a>
-                    <a class="quick-link" href="teaching.html">Teaching</a>
-                </div>
+                <h2>News</h2>
+                <ul class="news-list">
+                    <li>
+                        <time datetime="2026-03">Mar 2026</time>
+                        <p>Started as Postdoctoral Researcher at the University of Parma, working on global value chains in the European defense sector.</p>
+                    </li>
+                    <li>
+                        <time datetime="2026">2026</time>
+                        <p><a href="research.html#territorial-drivers"><em>Territorial drivers of social innovations</em></a>, with Roberto Dellisanti and Amir Maghssudipour, published in <em>Regional Studies</em>.</p>
+                    </li>
+                    <li>
+                        <time datetime="2026-01">Jan 2026</time>
+                        <p>Joined the University of Padua as scholarship holder, working on district heating systems.</p>
+                    </li>
+                    <li>
+                        <time datetime="2025-04">Apr 2025</time>
+                        <p>Completed my PhD at the University of Florence with the thesis <a href="research.html#thesis"><em>Three essays on local industrial growth</em></a>.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="content-card">
+                <h2>Selected Research</h2>
+                <ul class="section-list">
+                    <li>
+                        <strong><a href="research.html#district-effect">Global Shocks, Local Responses: The Labor–Market District Effect</a></strong>
+                        <p>with Marco Bellandi — under review</p>
+                    </li>
+                    <li>
+                        <strong><a href="research.html#territorial-drivers">Territorial drivers of social innovations</a></strong>
+                        <p><em>Regional Studies</em>, 2026 — with Roberto Dellisanti and Amir Maghssudipour</p>
+                    </li>
+                    <li>
+                        <strong><a href="research.html#aging-external-economies">Is aging in the regional labor market wiping out localized external economies? Evidence from European manufacturing</a></strong>
+                        <p><em>Industrial and Corporate Change</em> — with Amir Maghssudipour</p>
+                    </li>
+                </ul>
+                <p class="card-footer-link"><a href="research.html">All research →</a></p>
             </section>
         </main>
 
         <footer class="site-footer">
             <div class="social-icons">
+                <a href="#" data-email rel="nofollow" title="Email"><i class="fas fa-envelope"></i></a>
                 <a href="https://github.com/Filippo-BMec" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://orcid.org/0009-0006-8134-4092" target="_blank" rel="noopener noreferrer" title="ORCID"><i class="ai ai-orcid"></i></a>
                 <a href="https://scholar.google.com/citations?user=FUmIl8QAAAAJ&hl=it" target="_blank" rel="noopener noreferrer" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
-                <a href="https://x.com/Filippo_BMec" target="_blank" rel="noopener noreferrer" title="X"><i class="fab fa-twitter"></i></a>
+                <a href="https://x.com/Filippo_BMec" target="_blank" rel="noopener noreferrer" title="X"><i class="fab fa-x-twitter"></i></a>
                 <a href="https://www.linkedin.com/in/filippo-berti-mecocci-2a18a2116/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </footer>

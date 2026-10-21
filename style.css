@@ -304,10 +304,42 @@ li[id] {
     text-transform: uppercase;
 }
 
-.paper-links a + a::before {
-    content: "·";
-    display: inline-block;
-    margin: 0 10px;
+/* Separators are real characters in the markup, so the row stays readable without CSS. */
+.link-sep {
+    margin: 0 6px;
+    color: var(--muted);
+}
+
+/* ── Since-PhD Stats ─────────────────── */
+.phd-stats {
+    margin-top: 18px;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.stat-tile {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface-solid);
+}
+
+.stat-value {
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--text);
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    line-height: 1.4;
     color: var(--muted);
 }
 

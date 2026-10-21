@@ -58,31 +58,4 @@ document.addEventListener("DOMContentLoaded", () => {
             button.textContent = isOpen ? "Hide Abstract" : "Show Abstract";
         });
     });
-
-    // Since-PhD counters: entries in research.html carry data-since-phd="written" and/or
-    // "published". The numbers written in the HTML are a fallback if counting fails.
-    const statValues = document.querySelectorAll("[data-stat]");
-    if (statValues.length) {
-        const countStats = (doc) => ({
-            written: doc.querySelectorAll('[data-since-phd~="written"]').length,
-            "under-review": doc.querySelectorAll('#under-review [data-since-phd~="written"]').length,
-            published: doc.querySelectorAll('[data-since-phd~="published"]').length
-        });
-        const renderStats = (counts) => {
-            statValues.forEach((value) => {
-                if (counts[value.dataset.stat] !== undefined) {
-                    value.textContent = counts[value.dataset.stat];
-                }
-            });
-        };
-
-        if (document.querySelector("[data-since-phd]")) {
-            renderStats(countStats(document));
-        } else {
-            fetch("research.html")
-                .then((response) => (response.ok ? response.text() : Promise.reject(response.status)))
-                .then((html) => renderStats(countStats(new DOMParser().parseFromString(html, "text/html"))))
-                .catch(() => {});
-        }
-    }
 });

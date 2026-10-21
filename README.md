@@ -5,14 +5,14 @@ Sito personale accademico di **Filippo Berti Mecocci**, ora organizzato in modal
 ## Struttura del progetto
 
 - `index.html`: home page e presentazione generale.
-- `about.html`: profilo accademico e background.
+- `about.html`: profilo accademico, background e attività didattiche (sezione Teaching).
 - `research.html`: pubblicazioni, lavori under review, working papers, dormant papers e tesi.
-- `teaching.html`: attività didattiche.
 - `CV.pdf`: versione del curriculum pubblicata e collegata dalla home page.
 - `update_cv.sh`: compila il repository LaTeX adiacente e aggiorna `CV.pdf`.
 - `style.css`: stile globale del sito (layout, tipografia, responsive, temi).
 - `site.js`: logica client-side (tema, toggle abstract, back-to-top).
-- `papers.html`, `projects.html`, `work-in-progress.html`: redirect mantenuti per compatibilità con i vecchi URL.
+- `papers.html`, `projects.html`, `work-in-progress.html`: redirect verso `research.html` mantenuti per compatibilità con i vecchi URL.
+- `teaching.html`: redirect verso la sezione Teaching di `about.html`.
 
 ## Funzionalità principali
 
@@ -60,9 +60,9 @@ Lo script:
 
 1. copia `../CV/main.pdf` nel sito come `CV.pdf`;
 2. verifica che i due PDF coincidano;
-3. aggiorna il parametro di versione dei link al CV nelle quattro pagine principali, evitando che il browser mostri una vecchia copia in cache.
+3. aggiorna il parametro di versione dei link al CV nelle tre pagine principali, evitando che il browser mostri una vecchia copia in cache.
 
-Con `--publish` lo script aggiunge al commit anche le quattro pagine HTML: se contengono altre modifiche non ancora committate, conviene committarle prima.
+Con `--publish` lo script aggiunge al commit anche le tre pagine HTML principali: se contengono altre modifiche non ancora committate, conviene committarle prima.
 
 Per compilare prima i sorgenti LaTeX:
 

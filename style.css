@@ -310,39 +310,6 @@ li[id] {
     color: var(--muted);
 }
 
-/* ── Since-PhD Stats ─────────────────── */
-.phd-stats {
-    margin-top: 18px;
-}
-
-.stat-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
-}
-
-.stat-tile {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 14px;
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--surface-solid);
-}
-
-.stat-value {
-    font-size: 1.9rem;
-    font-weight: 600;
-    line-height: 1.15;
-    color: var(--text);
-}
-
-.stat-label {
-    font-size: 0.75rem;
-    line-height: 1.4;
-    color: var(--muted);
-}
-
 /* ── News ────────────────────────────── */
 .news-list {
     list-style: none;

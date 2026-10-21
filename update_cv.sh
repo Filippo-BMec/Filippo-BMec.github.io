@@ -45,7 +45,7 @@ if ! cmp -s "$CV_DIR/main.pdf" "$SITE_DIR/CV.pdf"; then
 fi
 
 CV_VERSION=$(shasum "$SITE_DIR/CV.pdf" | awk '{print substr($1, 1, 12)}')
-PAGES="index.html about.html research.html teaching.html"
+PAGES="index.html about.html research.html"
 
 # Every page links the CV from the nav; refresh the cache-busting version in all of them.
 for page in $PAGES; do

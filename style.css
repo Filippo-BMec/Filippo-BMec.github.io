@@ -13,6 +13,9 @@
     --border:        #b8ad94;
     --shadow:        3px 3px 0 var(--border);
     --radius:        2px;
+    --serif:         "EB Garamond", Georgia, serif;
+    --display:       "Cormorant Garamond", Georgia, serif;
+    --mono:          "IBM Plex Mono", "Courier New", monospace;
 }
 
 :root[data-theme="dark"] {
@@ -38,38 +41,12 @@
 /* ── Base ────────────────────────────── */
 body {
     min-height: 100vh;
-    font-family: "IBM Plex Mono", "Courier New", monospace;
-    font-size: 0.88rem;
+    font-family: var(--serif);
+    font-size: 1.08rem;
     color: var(--text);
-    line-height: 1.8;
+    line-height: 1.6;
     background-color: var(--bg);
     padding: 28px 20px 40px;
-}
-
-/* Scanline overlay */
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    pointer-events: none;
-    background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 3px,
-        rgba(0, 0, 0, 0.022) 3px,
-        rgba(0, 0, 0, 0.022) 4px
-    );
-}
-
-:root[data-theme="dark"] body::after {
-    background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 3px,
-        rgba(0, 0, 0, 0.06) 3px,
-        rgba(0, 0, 0, 0.06) 4px
-    );
 }
 
 .site-shell {
@@ -96,7 +73,7 @@ body::after {
 }
 
 .brand {
-    font-family: "Cormorant Garamond", serif;
+    font-family: var(--display);
     font-size: 1.4rem;
     letter-spacing: 0.02em;
     font-weight: 600;
@@ -105,6 +82,7 @@ body::after {
 }
 
 .site-nav ul {
+    margin-left: auto;
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
@@ -118,6 +96,7 @@ body::after {
 
 .site-nav ul a {
     display: inline-block;
+    font-family: var(--mono);
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -163,7 +142,6 @@ body::after {
     border: 1.5px solid var(--border);
     object-fit: cover;
     box-shadow: var(--shadow);
-    filter: sepia(0.15) contrast(1.05);
 }
 
 .text-content {
@@ -172,6 +150,7 @@ body::after {
 }
 
 .eyebrow {
+    font-family: var(--mono);
     text-transform: uppercase;
     letter-spacing: 0.2em;
     font-size: 0.68rem;
@@ -181,7 +160,7 @@ body::after {
 
 /* ── Typography ──────────────────────── */
 h1, h2, .brand {
-    font-family: "Cormorant Garamond", serif;
+    font-family: var(--display);
 }
 
 h1 {
@@ -217,6 +196,12 @@ main {
     margin-top: 10px;
 }
 
+/* Keep long prose at a comfortable line length. */
+.text-content > p,
+.content-card > p {
+    max-width: 70ch;
+}
+
 /* ── Links ───────────────────────────── */
 a {
     color: var(--accent);
@@ -233,28 +218,36 @@ a:hover {
 .section-list {
     list-style: none;
     display: grid;
-    gap: 14px;
+    gap: 16px;
 }
 
-.section-list li {
-    padding: 16px;
-    border-radius: var(--radius);
-    border: 1.5px solid var(--border);
-    background: var(--surface-solid);
-    box-shadow: 2px 2px 0 var(--border);
+/* Papers are separated by hairlines instead of nested boxes. */
+.section-list li + li {
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
 }
 
 .section-list strong {
     display: block;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-family: var(--display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.25;
     margin-bottom: 4px;
+}
+
+.section-list strong a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.section-list strong a:hover {
+    color: var(--accent);
 }
 
 .section-list p {
     color: var(--muted);
-    font-size: 0.83rem;
+    font-size: 1rem;
 }
 
 /* ── Anchors ─────────────────────────── */
@@ -273,6 +266,7 @@ li[id] {
 }
 
 .section-jump a {
+    font-family: var(--mono);
     padding: 5px 10px;
     border: 1.5px solid var(--border);
     border-radius: var(--radius);
@@ -298,6 +292,7 @@ li[id] {
 
 /* ── Paper Links ─────────────────────── */
 .section-list .paper-links {
+    font-family: var(--mono);
     margin-top: 6px;
     font-size: 0.78rem;
     letter-spacing: 0.05em;
@@ -324,6 +319,7 @@ li[id] {
 }
 
 .news-list time {
+    font-family: var(--mono);
     color: var(--accent);
     font-size: 0.75rem;
     font-weight: 500;
@@ -333,6 +329,7 @@ li[id] {
 }
 
 .card-footer-link {
+    font-family: var(--mono);
     margin-top: 14px;
     font-size: 0.78rem;
     letter-spacing: 0.05em;
@@ -353,8 +350,8 @@ li[id] {
 
 .abstract {
     color: var(--text);
-    font-size: 0.85rem;
-    line-height: 1.75;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .toggle-abstract {
@@ -365,7 +362,7 @@ li[id] {
     color: var(--accent);
     padding: 5px 12px;
     font-size: 0.75rem;
-    font-family: "IBM Plex Mono", monospace;
+    font-family: var(--mono);
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -384,19 +381,19 @@ li[id] {
 
 /* ── Theme Toggle ────────────────────── */
 .theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    border: 1.5px solid var(--border);
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border);
     border-radius: var(--radius);
-    background: var(--surface);
+    background: transparent;
     color: var(--text);
-    box-shadow: 2px 2px 0 var(--border);
     cursor: pointer;
-    z-index: 20;
-    transition: background 0.15s;
+    transition: border-color 0.15s, color 0.15s;
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 .theme-toggle i {
@@ -444,6 +441,7 @@ li[id] {
 
 /* ── Back to Top ─────────────────────── */
 .back-to-top {
+    font-family: var(--mono);
     position: fixed;
     right: 20px;
     bottom: 20px;
@@ -466,16 +464,8 @@ li[id] {
 
 /* ── Responsive ──────────────────────── */
 @media (max-width: 860px) {
-    body {
-        padding-top: 80px;
-    }
-
     .site-nav {
         position: static;
-    }
-
-    .theme-toggle {
-        top: 16px;
     }
 }
 

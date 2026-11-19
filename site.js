@@ -35,14 +35,26 @@ document.addEventListener("DOMContentLoaded", () => {
         updateBackToTop();
     }
 
+    const EMAIL_ADDRESSES = {
+        unipr: [
+            102, 105, 108, 105, 112, 112, 111, 46,
+            98, 101, 114, 116, 105, 109, 101, 99, 111, 99, 99, 105,
+            64,
+            117, 110, 105, 112, 114, 46, 105, 116
+        ],
+        personal: [
+            102, 46, 98, 101, 114, 116, 105, 57, 51,
+            64,
+            103, 109, 97, 105, 108, 46, 99, 111, 109
+        ]
+    };
+
     document.querySelectorAll("[data-email]").forEach((emailLink) => {
         emailLink.addEventListener("click", (event) => {
             event.preventDefault();
-            const address = [
-                102, 46, 98, 101, 114, 116, 105, 57, 51,
-                64,
-                103, 109, 97, 105, 108, 46, 99, 111, 109
-            ].map((code) => String.fromCharCode(code)).join("");
+            const key = emailLink.dataset.email || "unipr";
+            const codes = EMAIL_ADDRESSES[key] || EMAIL_ADDRESSES.unipr;
+            const address = codes.map((code) => String.fromCharCode(code)).join("");
             window.location.href = `mailto:${address}`;
         });
     });
